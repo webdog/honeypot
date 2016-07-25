@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, request
+from flask import Flask, request, Response
 import os
 
 app = Flask(__name__)
@@ -32,7 +32,8 @@ def process_post():
 		else:
 			message = request.to_json()
 			print(message)
-
+			resp = Response(status=200, mimetype='application/json')
+			return resp
 @app.route('/receive', methods = ['GET'])
 def receive_get():
 	return "Nothing to see here. Move along."
