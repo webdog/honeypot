@@ -26,13 +26,13 @@ def hello_world():
 @app.route('/receive', methods = ['POST'])
 def process_post():
 	headers = request.headers
+	resp = Response(status=200, mimetype='application/json')
 	for k, v in headers.items():
 		if v not in hks_true:
-			pass
+			return resp
 		else:
 			message = request.to_json()
 			print(message)
-			resp = Response(status=200, mimetype='application/json')
 			return resp
 @app.route('/receive', methods = ['GET'])
 def receive_get():
