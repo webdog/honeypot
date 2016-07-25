@@ -32,7 +32,6 @@ def process_post():
 			return resp
 		else:
 			message = request.to_json()
-			print(message)
 			return resp
 @app.route('/receive', methods = ['GET'])
 def receive_get():
